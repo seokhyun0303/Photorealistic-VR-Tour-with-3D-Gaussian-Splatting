@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: Downloads-ClarteGaussianSplattingVRViewer-ClarteGaussianSplattingVRViewer-point_cloud
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 1716025
+  m_BoundsMin: {x: -128.52187, y: -32.803688, z: -66.84524}
+  m_BoundsMax: {x: 69.468666, y: 24.562756, z: 103.30353}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: ac2f6f5b3f128130d48355d525723e89
+  m_LayerInfo:
+  - x: 0
+    y: 1716025
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: a012692a6221837458f3403f5c9af289, type: 3}
+    m_ColorData: {fileID: 4900000, guid: 2fdceec596e22494f973429cd02233a2, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 5bc3392547ec90544bebd64d1e5c5fce, type: 3}
+    m_SHData: {fileID: 4900000, guid: 4c284581869f9ac47bee62f89ed079fb, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []
