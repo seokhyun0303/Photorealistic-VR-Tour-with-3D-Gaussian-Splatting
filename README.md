@@ -83,9 +83,9 @@ https://colmap.github.io/install.html
 
 ## 🔮 Future Work
 
-## Contributi
-## Citation
-## License info
+### Contribution
+### Citation
+### License info
 
 👥 Team  **"RealityOne"**  
 조석현 (202011371)  
