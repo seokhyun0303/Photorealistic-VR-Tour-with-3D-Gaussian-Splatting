@@ -12,6 +12,27 @@ Traditional VR tours are either:
 **Our goal**: enable fast, automated, and high-quality VR tour creation from real-world imagery while maintaining strong photorealism.
 
 ### 📋 index
+- [Photorealistic VR Tour using 3D Gaussian Splatting](#Photorealistic-VR-Tour-using-3D-Gaussian-Splatting)
+- [What is 3D Reconstruction?](#What-is-3D-Reconstruction?)
+- [What is Gaussian Splatting?](#What-is-Gaussian-Splatting?)
+- [Pipeline](#Pipeline)
+- [Technical Requirements](#Technical-Requirements)
+	- [Hardware](#Hardware)
+ 	- [Software](#Software)
+- [Installation & Setup](#Installation-&-Setup)
+	- [Data](#Data)
+ 	- [Colmap](#Colmap)
+    - [3dgs](#3dgs)
+    - [Unity](#Unity)
+- [Usage](#Usage)
+	- [Quick Start](#Quick-Start)
+ 	- [Output](#Output)
+  	- [VR](#VR)
+- [Future Work](#Future-Work)
+- [Contribution](#Contribution)
+- [Citation](#Citation)
+- [License info](#License-info)
+
 
 ## ❓ What is 3D Reconstruction?
 3D Reconstruction is the process of creating a **3D digital model** of a real-world object or environment from 2D images or videos.  
@@ -21,7 +42,7 @@ It extracts **feature points** (edges, corners, textures), estimate **camera pos
 From this point cloud, a mesh with textures can be generated, forming a digital replica of the scene.  
 👉 In our project, 3D reconstruction provides the **geometric structure** of the environment.
 
-## ❓ Gaussian Splatting? 
+## ❓ What is Gaussian Splatting? 
 3D Gaussian Splatting (3DGS) is a **recent rendering technique** for photorealistic 3D scenes.  
 Instead of meshes, it represents the world as **millions of Gaussian “blobs”** in 3D space.  
 Each Gaussian carries **position, color, size, orientation, and transparency**.  
@@ -83,9 +104,9 @@ https://colmap.github.io/install.html
 
 ## 🔮 Future Work
 
-### Contribution
-### Citation
-### License info
+## Contribution
+## Citation
+## License info
 
 👥 Team  **"RealityOne"**  
 조석현 (202011371)  
