@@ -16,7 +16,7 @@ Traditional VR tours are either:
 - [What is 3D Reconstruction?](#What-is-3D-Reconstruction?)
 - [What is Gaussian Splatting?](#What-is-Gaussian-Splatting?)
 - [Pipeline](#Pipeline)
-- [Technical Requirements](#Technical-Requirements)
+- [Technical Requirements](#technical-requirements)
 	- [Hardware](#Hardware)
  	- [Software](#Software)
 - [Installation & Setup](#Installation-&-Setup)
