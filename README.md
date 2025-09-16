@@ -1,9 +1,60 @@
-## Overview
-Existing VR tours were able to experience only certain spaces provided in advance by the production company because of the need for high quality. The goal is to enable users to make various spaces they want into virtual 3D environments while maintaining high quality by utilizing 3D reconstruction and 3DGS
-## System requirements
-## Instration / Setup Instructions
-## Usage examples
-## Dataset
-## Output description
-## VR / Viewer instructions
-## Contributing / citation / license info
+# Photorealistic VR Tour using 3D Gaussian Splatting
+### 📌 Introduction
+
+This project aims to create photorealistic VR tours by combining 3D Reconstruction (COLMAP, OpenMVS) with 3D Gaussian Splatting (3DGS), and deploying the results in Unity for VR devices (Meta Quest 3, PCVR).  
+Unlike existing VR tours limited to pre-modeled spaces, our approach allows users to capture any environment with a smartphone camera and transform it into an immersive, high-quality VR tour.
+
+### 🎯 Motivation  
+Traditional VR tours are either:  
+- Panoramic-based → limited to static viewing points.  
+- Manually modeled in 3D engines → high cost & time-consuming.  
+
+**Our goal**: enable fast, automated, and high-quality VR tour creation from real-world imagery while maintaining strong photorealism.
+
+### 📋 index
+
+## ❓ What is 3D Reconstruction?
+3D Reconstruction is the process of creating a **3D digital model** of a real-world object or environment from 2D images or videos.  
+Tool like **COLMAP** analyze multiple photos taken from different angles.  
+It extracts **feature points** (edges, corners, textures), estimate **camera positions**, and build a **point cloud**.  
+
+From this point cloud, a mesh with textures can be generated, forming a digital replica of the scene.  
+👉 In our project, 3D reconstruction provides the **geometric structure** of the environment.
+
+## ❓ Gaussian Splatting? 
+3D Gaussian Splatting (3DGS) is a **recent rendering technique** for photorealistic 3D scenes.  
+Instead of meshes, it represents the world as **millions of Gaussian “blobs”** in 3D space.  
+Each Gaussian carries **position, color, size, orientation, and transparency**.  
+During rendering, these blobs are projected (“splatted”) onto the screen and blended together.  
+
+The result: **smooth, high-quality visuals** with realistic lighting and textures — often better and faster than traditional NeRFs or meshes.  
+👉 In our project, 3DGS enhances the reconstructed geometry to deliver **photorealism inside VR**.
+
+## Pipeline
+
+1. Image Capture → User records a short (1–3 min) video of the target environment.
+
+2. 3D Reconstruction (COLMAP) → Sparse & dense point clouds + camera poses.
+
+4. 3D Gaussian Splatting (3DGS) → Optimized point cloud rendering with high realism.
+
+5. Unity Integration → Export to VR scene, interactive with Meta Quest 3.
+
+## 💻 Technical Requirements
+### Hardware
+GPU: NVIDIA RTX with ≥ 16 GB VRAM (recommended 24 GB+ for large scenes).  
+CPU: 8+ cores.  
+RAM: 32 GB+.  
+Storage: ~100 GB free space.  
+VR Device: Meta Quest 3 (PCVR recommended.  
+
+### Software
+OS: Ubuntu 22.04 LTS / Windows 11 (development tested on both).  
+Python 3.10+ (Conda environment provided).  
+CUDA 11.8+.  
+Unity 2022+ with XR Interaction Toolkit.  
+
+👥 Team  **"RealityOne"**  
+조석현 (202011371)  
+최지야 (202213586)  
+하라다카호 (202213528)  
