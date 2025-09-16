@@ -78,14 +78,14 @@ https://colmap.github.io/install.html
 
 ## 🚀 Usage
 ### Quick Start:
-
-
-
+### Output: 
+### VR:
 
 ## 🔮 Future Work
 
-
-## Usage example
+## Contributi
+## Citation
+## License info
 
 👥 Team  **"RealityOne"**  
 조석현 (202011371)  
