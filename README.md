@@ -34,7 +34,7 @@ The result: **smooth, high-quality visuals** with realistic lighting and texture
 
 1. Image Capture → User records a short (1–3 min) video of the target environment.
 
-2. 3D Reconstruction (COLMAP) → Sparse & dense point clouds + camera poses.
+2. 3D Reconstruction (COLMAP) → Sparse point clouds + camera poses.
 
 4. 3D Gaussian Splatting (3DGS) → Optimized point cloud rendering with high realism.
 
@@ -49,12 +49,47 @@ Storage: ~100 GB free space.
 VR Device: Meta Quest 3 (PCVR recommended.  
 
 ### Software
-OS: Ubuntu 22.04 LTS / Windows 11 (development tested on both).  
+OS: Windows 10.  
 Python 3.10+ (Conda environment provided).  
 CUDA 11.8+.  
 Unity 2022+ with XR Interaction Toolkit.  
+
+### Prerequisites
+
+## 🔧 Installation & Setup
+
+
+### 1. Data  
+Sample Data:  
+Download the provided sample dataset (/samples/hwangso/) to test the pipeline.  
+Custom Data:  
+- Record a video (1–3 min).  
+- Extract frames at 2–5 fps.
+Place into datasets/<scene_name>/images/.
+	
+### 2. Colmap
+Follow the instructions for Colmap installation on the official page:  
+https://colmap.github.io/install.html
+### 3. 3dgs
+
+### 4. Unity 
+
+
+
+## 🚀 Usage
+### Quick Start:
+
+
+
+
+## 🔮 Future Work
+
+
+## Usage example
 
 👥 Team  **"RealityOne"**  
 조석현 (202011371)  
 최지야 (202213586)  
 하라다카호 (202213528)  
+
+
