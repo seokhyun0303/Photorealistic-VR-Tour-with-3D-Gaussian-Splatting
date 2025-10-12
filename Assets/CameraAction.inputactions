@@ -1,0 +1,62 @@
+{
+    "name": "CameraAction",
+    "maps": [
+        {
+            "name": "camerasetdelete",
+            "id": "31831faa-25a7-4e66-87aa-2deab3c32b6e",
+            "actions": [
+                {
+                    "name": "cameraset",
+                    "type": "Button",
+                    "id": "7e640beb-380b-4bbd-af97-ca07f57c557a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1364db7c-ead5-46f8-9964-920b79859f64",
+                    "path": "<XRController>{RightHand}/{PrimaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "cameraset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "camerashot",
+            "id": "6e14071c-bf66-41ba-a842-335ac907990f",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "492db6e3-a0e2-410a-9685-214f54de51dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1b5074c4-a6da-4ced-89c5-a9f2352942a6",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

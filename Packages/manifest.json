@@ -20,7 +20,7 @@
     "org.mixedrealitytoolkit.uxcomponents": "file:MixedReality/org.mixedrealitytoolkit.uxcomponents-4.0.0-pre.1.tgz",
     "org.mixedrealitytoolkit.uxcomponents.noncanvas": "file:MixedReality/org.mixedrealitytoolkit.uxcomponents.noncanvas-4.0.0-pre.1.tgz",
     "org.mixedrealitytoolkit.uxcore": "file:MixedReality/org.mixedrealitytoolkit.uxcore-4.0.0-pre.1.tgz",
-    "org.nesnausk.gaussian-splatting": "file:../../package",
+    "org.nesnausk.gaussian-splatting": "file:../package",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",

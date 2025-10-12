@@ -382,7 +382,7 @@
       }
     },
     "org.nesnausk.gaussian-splatting": {
-      "version": "file:../../package",
+      "version": "file:../package",
       "depth": 0,
       "source": "local",
       "dependencies": {
