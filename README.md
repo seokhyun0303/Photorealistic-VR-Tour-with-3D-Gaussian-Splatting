@@ -13,8 +13,6 @@ Traditional VR tours are either:
 
 ### 📋 index
 - [Photorealistic VR Tour using 3D Gaussian Splatting](#photorealistic-vr-tour-using-3d-gaussian-splatting)
-- [What is 3D Reconstruction?](#what-is-3d-reconstruction)
-- [What is Gaussian Splatting?](#what-is-gaussian-splatting)
 - [Pipeline](#pipeline)
 - [Technical Requirements](#-technical-requirements)
   - [Hardware](#hardware)
@@ -32,24 +30,6 @@ Traditional VR tours are either:
 - [Contribution](#contribution)
 - [Citation](#citation)
 - [License info](#license-info)
-
-
-## ❓ What is 3D Reconstruction?
-3D Reconstruction is the process of creating a **3D digital model** of a real-world object or environment from 2D images or videos.  
-Tool like **COLMAP** analyze multiple photos taken from different angles.  
-It extracts **feature points** (edges, corners, textures), estimate **camera positions**, and build a **point cloud**.  
-
-From this point cloud, a mesh with textures can be generated, forming a digital replica of the scene.  
-👉 In our project, 3D reconstruction provides the **geometric structure** of the environment.
-
-## ❓ What is Gaussian Splatting? 
-3D Gaussian Splatting (3DGS) is a **recent rendering technique** for photorealistic 3D scenes.  
-Instead of meshes, it represents the world as **millions of Gaussian “blobs”** in 3D space.  
-Each Gaussian carries **position, color, size, orientation, and transparency**.  
-During rendering, these blobs are projected (“splatted”) onto the screen and blended together.  
-
-The result: **smooth, high-quality visuals** with realistic lighting and textures — often better and faster than traditional NeRFs or meshes.  
-👉 In our project, 3DGS enhances the reconstructed geometry to deliver **photorealism inside VR**.
 
 ## Pipeline
 
@@ -80,18 +60,57 @@ Unity 2022+ with XR Interaction Toolkit.
 ## 🔧 Installation & Setup
 
 
-### 1. Data  
-Sample Data:  
-Download the provided sample dataset (/samples/hwangso/) to test the pipeline.  
-Custom Data:  
-- Record a video (1–3 min).  
-- Extract frames at 2–5 fps.
-Place into datasets/<scene_name>/images/.
+### 1. Data 
+The pipeline requires image sequences as input. You can either use the provided **sample dataset** or prepare your own data from a recorded video.
+
+### 🔹 Sample Data
+To quickly test the pipeline:
+- Download the provided sample dataset: *link* .
+- Place it inside the `datasets/` folder.  
+
+ 
+### 🔹 Custom Data
+To process your own environment:
+
+1. **Record a Video**
+ - Use a smartphone or camera.  
+ - Recommended: **1–3 minutes** of video while slowly walking around the target environment.  
+ - Capture smooth motion with overlapping views (avoid rapid rotations).  
+
+2. **Extract Frames**
+ - Install [FFmpeg](https://ffmpeg.org/):
+   - **macOS (Homebrew):**
+     ```bash
+     brew install ffmpeg
+     ```
+   - **Windows:**
+     1. Download a build from [ffmpeg.org/download](https://ffmpeg.org/download.html).  
+     2. Extract it and add the `bin` folder to your system PATH.  
+
+ - Run the command to extract frames at 2–5 fps:
+   	- macOS:
+   ```bash
+   ffmpeg -i video.mp4 -vf fps=3 frames/v_%04d.jpg
+   ```
+   -  Windows CMD: use backslashes instead of forward slashes:
+   ```cmd
+   ffmpeg -i video.mp4 -vf fps=3 frames\v_%04d.jpg
+   ```
+   - Adjust fps depending on:
+	   - **Simple scenes** → 2 fps is enough.  
+	   - **Complex/detailed scenes** → use 4–5 fps for better reconstruction.
+3. **Organize Dataset**
+ - Place your extracted frames into the project folder:
+   ```
+   datasets/<scene_name>/frames/
+   ```
 	
 ### 2. Colmap
-Follow the instructions for Colmap installation on the official page:  
-https://colmap.github.io/install.html
+👉 Download and install COLMAP. 
+Follow the [installation guidelines](https://colmap.github.io/install.html) .
+
 ### 3. 3dgs
+
 
 ### 4. Unity 
 
@@ -99,6 +118,45 @@ https://colmap.github.io/install.html
 
 ## 🚀 Usage
 ### Quick Start:
+Follow the COLMAP [tutorial](https://colmap.github.io/tutorial.html) to get started with reconstruction.
+#### Step 1 — Open COLMAP
+- Launch the [COLMAP GUI](https://colmap.github.io/gui.html#gui). 
+#### Step 2 — Create a New Project
+- Go to **File → New Project…**  
+- Set:
+  - **Image path:** `datasets/<scene_name>/frames/`
+  - **Database path:** `datasets/<scene_name>/colmap/database.db`
+  - **Project file:** (optional, e.g. `datasets/<scene_name>/colmap/project.ini`)  
+- Click **Save**.
+#### Step 3 — Feature Extraction
+- From the top menu: **Processing → Feature Extraction…**
+- Select:
+  - **Camera model:** `SIMPLE_RADIAL` (recommended for smartphone video)  
+  - **Single camera:** enabled  
+  - **Use GPU:** if available  
+- Run the extraction.
+#### Step 4 — Feature Matching
+- For video frames (sequential order): **Processing → Sequential Matcher…**
+  - Set *Overlap* = 5–10 (controls how many neighboring frames to match).  
+- For unordered photos: use **Exhaustive Matcher** instead.  
+- Run the matching.
+#### Step 5 — Sparse Reconstruction (Mapping)
+- From the top menu: **Reconstruction → Start Reconstruction…**
+- Select:
+  - **Database path** = your project’s `database.db`  
+  - **Image path** = `frames/`  
+  - **Output path** = `datasets/<scene_name>/colmap/sparse/`  
+- Click **Run**. COLMAP will create one or more models (e.g. `sparse/0`).
+#### Step 6 — Save the Model for Next Step
+COLMAP automatically saves the reconstruction in **binary format**, which is required for 3D Gaussian Splatting.
+After reconstruction, you should export model and get the following files:
+- `cameras.bin`
+- `images.bin`
+- `points3D.bin`
+
+Additionally, keep your `project.ini` (created when you made the project).  
+👉 These files will be used directly as input for the **3D Gaussian Splatting** stage.  
+
 ### Output: 
 ### VR:
 
