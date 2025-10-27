@@ -4,6 +4,8 @@
 This project aims to create photorealistic VR tours by combining 3D Reconstruction (COLMAP, OpenMVS) with 3D Gaussian Splatting (3DGS), and deploying the results in Unity for VR devices (Meta Quest 3, PCVR).  
 Unlike existing VR tours limited to pre-modeled spaces, our approach allows users to capture any environment with a smartphone camera and transform it into an immersive, high-quality VR tour.
 
+![Demo](demo.gif)
+
 ### 🎯 Motivation  
 Traditional VR tours are either:  
 - Panoramic-based → limited to static viewing points.  
