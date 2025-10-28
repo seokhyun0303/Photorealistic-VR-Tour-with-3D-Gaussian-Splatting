@@ -159,6 +159,38 @@ After reconstruction, you should export model and get the following files:
 Additionally, keep your `project.ini` (created when you made the project).  
 👉 These files will be used directly as input for the **3D Gaussian Splatting** stage.  
 
+Once you have the COLMAP output (`cameras.bin`, `images.bin`, `points3D.bin`, and `project.ini`), the next step is to run the **3D Gaussian Splatting reconstruction**.  
+We provide a Colab notebook to simplify setup.
+
+#### Step 1 — Open Colab
+- Launch the provided `3dgs.ipynb` notebook in Google Colab.  
+- Run the cells **sequentially** until you reach the code block:
+
+```python
+# 保存したいパスと内容を指定
+file_path = "/content/gaussian-splatting/requirements.txt"
+content = "plyfile=0.8.1"
+
+# ファイルの作成と書き込み
+with open(file_path, "w") as f:
+    f.write(content)
+
+print(f"{file_path} にファイルを保存しました。")
+```
+
+This creates a file called requirements.txt inside /content/gaussian-splatting/.
+
+#### Step 2 — Edit ```requirements.txt```
+Open the newly created requirements.txt file in Colab.
+
+Replace its contents with the following:
+```
+plyfile==0.8.1
+tqdm
+submodules/diff-gaussian-rasterization
+submodules/simple-knn
+```
+
 ### Output: 
 ### VR:
 
