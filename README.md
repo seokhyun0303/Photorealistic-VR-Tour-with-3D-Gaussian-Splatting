@@ -4,6 +4,7 @@
 This project aims to create photorealistic VR tours by combining 3D Reconstruction (COLMAP, OpenMVS) with 3D Gaussian Splatting (3DGS), and deploying the results in Unity for VR devices (Meta Quest 3, PCVR).  
 Unlike existing VR tours limited to pre-modeled spaces, our approach allows users to capture any environment with a smartphone camera and transform it into an immersive, high-quality VR tour.
 
+![Demo2](demo2.gif)
 ![Demo](demo.gif)
 
 ### 🎯 Motivation  
@@ -58,6 +59,7 @@ CUDA 11.8+.
 Unity 2022+ with XR Interaction Toolkit.  
 
 ### Prerequisites
+Unity: 2022.3.47f1 and up
 
 ## 🔧 Installation & Setup
 
@@ -110,12 +112,6 @@ To process your own environment:
 ### 2. Colmap
 👉 Download and install COLMAP. 
 Follow the [installation guidelines](https://colmap.github.io/install.html) .
-
-### 3. 3dgs
-
-
-### 4. Unity 
-version - 2022.3.47f1 
 
 
 ## 🚀 Usage
@@ -321,10 +317,22 @@ If you just want to experience the Unity project as provided:
 - When sending a photo, a **"Analyzing…"** UI appears.  
 - After a short wait, a UI with the description of the detected object/space is displayed.
 
-### Output: 
-### VR:
+### Output:
+With this pipeline, a user can reconstruct a photorealistic 3D scene from just a short video recording.
+
+The result is a 3D Gaussian Splatting model (.ply), which can be imported into Unity and explored in VR with Meta Quest 3 (PCVR).
+
+Unlike traditional mesh/texture reconstructions, 3DGS produces smoother surfaces and more natural colors, delivering a highly realistic experience.
+
+When the backend server is connected, the VR system supports photo capture, object detection, and interactive guide generation — allowing users to receive contextual descriptions, videos, or audio narration directly inside the virtual tour.
 
 ## 🔮 Future Work
+Interactive VR Tours: Enhance user immersion by allowing interactions such as AI-generated guide signs, contextual descriptions, or 3D mini-maps within the reconstructed scenes.
+
+AI-Assisted Content Generation: Automate the creation of guide sign content, TTS narration, and contextual feedback to make VR tours more adaptive and immersive.
+
+Latency Reduction: Shorten UI response times by leveraging GPU acceleration and optimizing backend communication.
+
 
 ## Contribution
 ## Citation
