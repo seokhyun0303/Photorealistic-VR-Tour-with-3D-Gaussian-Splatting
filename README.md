@@ -14,21 +14,25 @@ Traditional VR tours are either:
 
 **Our goal**: enable fast, automated, and high-quality VR tour creation from real-world imagery while maintaining strong photorealism.
 
-### 📋 index
-- [Photorealistic VR Tour using 3D Gaussian Splatting](#photorealistic-vr-tour-using-3d-gaussian-splatting)
+### 📋 Index
+- [Motivation](#-motivation)
 - [Pipeline](#pipeline)
 - [Technical Requirements](#-technical-requirements)
   - [Hardware](#hardware)
   - [Software](#software)
+  - [Prerequisites](#prerequisites)
 - [Installation & Setup](#-installation--setup)
   - [Data](#1-data)
+    - [Sample Data](#-sample-data)
+    - [Custom Data](#-custom-data)
   - [Colmap](#2-colmap)
-  - [3dgs](#3-3dgs)
-  - [Unity](#4-unity)
 - [Usage](#-usage)
-  - [Quick Start](#quick-start)
-  - [Output](#output)
-  - [VR](#vr)
+  - [Colmap Sparse Point Cloud Reconstruction](#3d-reconstruction)
+  - [3D Gaussian Splatting](#3d-gaussian-splatting)
+  - [Unity](#unity)
+  - [Backend Integration (Optional)](#optional-backend-integration)
+  - [Quick Start (FastAPI Backend)](#quick-start-with-fastapi-backend)
+- [Output](#output)
 - [Future Work](#-future-work)
 - [Contribution](#contribution)
 - [Citation](#citation)
@@ -46,20 +50,18 @@ Traditional VR tours are either:
 
 ## 💻 Technical Requirements
 ### Hardware
-GPU: NVIDIA RTX with ≥ 16 GB VRAM (recommended 24 GB+ for large scenes).  
-CPU: 8+ cores.  
-RAM: 32 GB+.  
-Storage: ~100 GB free space.  
-VR Device: Meta Quest 3 (PCVR recommended.  
+GPU: NVIDIA RTX ≥ 16 GB VRAM (24 GB+ recommended for large scenes)  
+CPU: 8+ cores   
+RAM: 32 GB+  
+Storage: ~100 GB free space  
+VR Device: Meta Quest 3 (PCVR recommended  
 
-### Software
-OS: Windows 10.  
-Python 3.10+ (Conda environment provided).  
-CUDA 11.8+.  
-Unity 2022+ with XR Interaction Toolkit.  
+### Software  
+OS: Windows 10  
+Python 3.10+ (Conda environment provided)  
+CUDA 11.8+  
+Unity 2022+ with XR Interaction Toolkit  
 
-### Prerequisites
-Unity: 2022.3.47f1 and up
 
 ## 🔧 Installation & Setup
 
@@ -336,7 +338,13 @@ Latency Reduction: Shorten UI response times by leveraging GPU acceleration and 
 
 ## Contribution
 ## Citation
+This project makes use of the following open-source software:
+- [Unity-VR-Gaussian-Splatting](https://github.com/ninjamode/Unity-VR-Gaussian-Splatting)
+- [COLMAP](https://colmap.github.io/) — Schönberger, J. L., & Frahm, J.-M. (2016). Structure-from-Motion Revisited. CVPR.
 ## License info
+- Unity-VR-Gaussian-Splatting → MIT License © 2023 ninjamode
+- COLMAP → BSD 3-Clause License © 2016 Johannes L. Schönberger
+(Copies of the above licenses are included in their respective repositories. This project respects and complies with those licenses.)
 
 👥 Team  **"RealityOne"**  
 조석현 (202011371)  
