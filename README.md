@@ -119,7 +119,7 @@ version - 2022.3.47f1
 
 
 ## 🚀 Usage
-### Quick Start:
+### 3D reconstruction:
 Follow the COLMAP [tutorial](https://colmap.github.io/tutorial.html) to get started with reconstruction.
 #### Step 1 — Open COLMAP
 - Launch the [COLMAP GUI](https://colmap.github.io/gui.html#gui). 
@@ -161,6 +161,7 @@ Additionally, keep your `project.ini` (created when you made the project).
 
 Once you have the COLMAP output (`cameras.bin`, `images.bin`, `points3D.bin`, and `project.ini`), the next step is to run the **3D Gaussian Splatting reconstruction**.  
 
+#### 3D Gaussian Splatting
 #### 📁 Required Files and Folders for 3DGS
 
 Before running the Colab notebook, organize your data in the correct folder structure inside the `gaussian-splatting` project directory.
@@ -223,7 +224,7 @@ project/3dgsOutput/point_cloud/iteration_50000/point_cloud.ply
 
 - **`point_cloud.ply`** → This is the trained Gaussian Splatting model saved in PLY format.  
 
-### 4. Unity
+### Unity
 
 Once you have generated the `point_cloud.ply` file from 3DGS, you can load it into Unity using the provided project.
 
