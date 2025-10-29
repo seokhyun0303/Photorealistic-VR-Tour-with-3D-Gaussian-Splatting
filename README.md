@@ -265,7 +265,7 @@ If you have a backend server running (for example, one that performs **object de
 ![Guide Content setting](unity_5.png)
 ---
 
-#### Quick Start (With fastapi backend)
+### Quick Start (With fastapi backend)
 If you just want to experience the Unity project as provided:
 
 **Step 5.5 — Set Up the Backend Server**
