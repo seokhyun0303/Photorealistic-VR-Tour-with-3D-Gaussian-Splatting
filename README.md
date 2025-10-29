@@ -280,6 +280,23 @@ If you just want to experience the Unity project as provided:
 
 	Before running, update these paths to match **your local environment**
 	(e.g. absolute paths to your model files or working folders).
+  - Install required modules
+    Make sure you have **Python 3.9+** installed.
+	Then, in the same directory where **main.py** and **requirements.txt** are located, run:
+	```
+	pip install -r requirements.txt --upgrade
+	```
+
+  - Run the FastAPI server
+    ```
+    uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+    ```
+    If successful, you’ll see:
+    ```
+	INFO:     Uvicorn running on http://127.0.0.1:8000
+	```
+	Keep this server running while you use the Unity app —
+	when you press B (Capture) in VR, Unity will send the captured image to this backend for analysis.
 
 **Step 6 — Build the Project**
 - Go to **File → Build Settings**.  
