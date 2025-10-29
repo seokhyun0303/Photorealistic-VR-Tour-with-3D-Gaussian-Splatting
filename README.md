@@ -264,8 +264,22 @@ If you have a backend server running (for example, one that performs **object de
 ![Guide Content setting](unity_5.png)
 ---
 
-#### Quick Start (Without Backend)
+#### Quick Start (With fastapi backend)
 If you just want to experience the Unity project as provided:
+
+**Step 5.5 — Set Up the Backend Server**
+- Before building the Unity project, you need to start the FastAPI backend server.
+  Unity will send captured photos to this server for analysis (object/scene detection).
+
+  - Open the backend in PyCharm
+    Both **main.py** and **requirements.txt** are included in this repository.
+	Open main.py in PyCharm (or any Python IDE).
+  - Check file paths in main.py
+    Inside main.py, there are four file path definitions — for example,
+	paths to models, datasets, or save directories.
+
+	Before running, update these paths to match **your local environment**
+	(e.g. absolute paths to your model files or working folders).
 
 **Step 6 — Build the Project**
 - Go to **File → Build Settings**.  
