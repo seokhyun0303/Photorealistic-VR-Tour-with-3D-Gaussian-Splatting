@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: museum4
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 613807
+  m_BoundsMin: {x: -5.5205, y: -8.314822, z: -11.229558}
+  m_BoundsMax: {x: 42.962788, y: 3.2798815, z: 14.958201}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 80571abd233016dba024ec980cc765fb
+  m_LayerInfo:
+  - x: 0
+    y: 613807
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 9a6cd53127cb4584caff76197cdddb49, type: 3}
+    m_ColorData: {fileID: 4900000, guid: bec7175249a664a46ae0b688605625ab, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 927cf0d12f4fd054e9f47f33c18f54ac, type: 3}
+    m_SHData: {fileID: 4900000, guid: 4fd12fbcf1e117d47ad318a0ebd2ea17, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

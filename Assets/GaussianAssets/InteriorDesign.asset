@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: InteriorDesign
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 151391
+  m_BoundsMin: {x: -20.17214, y: -26.46739, z: -23.226059}
+  m_BoundsMax: {x: 30.962576, y: 7.436473, z: 15.635028}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: 944fab31d30e02f1436426bc7a1db996
+  m_LayerInfo:
+  - x: 0
+    y: 151391
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 302784d07ab74164ba837ef621208790, type: 3}
+    m_ColorData: {fileID: 4900000, guid: d6f1c7894073c3a4e90988c18467277e, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 29fd7b7f7da852b4a86a4ff0ae399613, type: 3}
+    m_SHData: {fileID: 4900000, guid: 210746f1d28e88848b31559d1364ddb2, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

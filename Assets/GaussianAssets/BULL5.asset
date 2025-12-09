@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: BULL5
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 1458577
+  m_BoundsMin: {x: -40.94526, y: -23.87138, z: -48.606808}
+  m_BoundsMax: {x: 49.138313, y: 10.726919, z: 44.419292}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: c9d5512605580931a4c130623784e6f5
+  m_LayerInfo:
+  - x: 0
+    y: 1458577
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 9ff3f6a75d6b8b34fbaf543a25578981, type: 3}
+    m_ColorData: {fileID: 4900000, guid: 0f989448edbd8724cb07645007130388, type: 3}
+    m_OtherData: {fileID: 4900000, guid: ac22f209cb5c5654a9aacffee4570b69, type: 3}
+    m_SHData: {fileID: 4900000, guid: 08e7aa35df96d424abe00b35b7b14a50, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

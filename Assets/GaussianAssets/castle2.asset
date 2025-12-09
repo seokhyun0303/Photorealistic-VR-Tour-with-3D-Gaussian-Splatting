@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: castle2
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 522914
+  m_BoundsMin: {x: -12.071215, y: -11.427504, z: -2.0342247}
+  m_BoundsMax: {x: 12.407686, y: 0.9543065, z: 23.892405}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: da2394cbb9e0fc18a9aedfa1ca122d7d
+  m_LayerInfo:
+  - x: 0
+    y: 522914
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 6c59e604349f1e042ac5b1ae2cd3fb46, type: 3}
+    m_ColorData: {fileID: 4900000, guid: 446f3ed4a4d6131418323328b95b8217, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 5bd2df21fa93f5f4b8df0f766a29024d, type: 3}
+    m_SHData: {fileID: 4900000, guid: 198aec0938def354595893315621680b, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

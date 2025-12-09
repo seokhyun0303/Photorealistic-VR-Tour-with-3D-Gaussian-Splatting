@@ -1,0 +1,22 @@
+﻿Technical Specifications - Bust Of Sappho
+Author: AK Studio Art 
+
+=== Summary ===
+A stylized 3D bust of Sappho with two material variants:
+polished white marble and weathered metal with patina.
+Ideal for museums, historical scenes, and artistic environments.
+
+=== Content ===
+- Number of Unique Meshes: 1.
+- Number of Unique Materials: 2.
+- Number of polygons: 4.819.
+- Texture sizes used: 1024x1024 (3)
+- Types of texture maps: BaseMap, MaskMap, NormalMap.
+
+=== Statistics ===
+The package includes:
+  - 1 FBX models.
+  - 2 Prefabs.
+  - 2 Materials.
+  - 3 Textures. 
+  - 1 Demo Scene.

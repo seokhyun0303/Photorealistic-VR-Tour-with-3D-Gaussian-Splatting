@@ -1,115 +1,157 @@
 using System;
 using System.Collections;
-using System.Text;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Networking;
 
-public class CaptureandSend : MonoBehaviour
+public class CaptureAndSend : MonoBehaviour
 {
-    [Header("Capture Source")]
-    [Tooltip("MiniCam에 꽂혀있는 RenderTexture")]
-    public RenderTexture renderTexture;
+    [Header("Capture")]
+    public RenderTexture renderTexture;            // 미니카메라가 출력 중인 RT (필수)
 
     [Header("Input")]
-    [Tooltip("Right secondaryButton(B)에 바인딩된 액션")]
-    public InputActionReference sendAction;
+    public InputActionReference sendAction;        // B 버튼
 
     [Header("Server")]
-    public string serverUrl = "http://127.0.0.1:8000/upload"; // FastAPI 엔드포인트
+    public string serverUrl = "http://127.0.0.1:8000/detect";
 
-    // 임시 버퍼
+    [Header("UI Spawning")]
+    public Transform uiPoint;                      // XR Origin 하위 UIpoint
+    public GameObject guideUIPrefab;               // GuideUI 프리팹
+
+    private GuideUIController waitingUI;           // 분석중 UI
+    private GuideUIController resultUI;            // 결과 UI
+    private bool _busy = false;
+
     private Texture2D _readTex;
 
-    void OnEnable()
+    [Serializable]
+    public class DetectResponse { public string label; }
+
+    [Header("Guide Contents")]
+    public GuideUIController.GuideContent bullContent;
+    public GuideUIController.GuideContent disneyContent;
+    public GuideUIController.GuideContent unknownContent;
+
+    private void OnEnable()
     {
-        if (sendAction != null)
-        {
-            sendAction.action.performed += OnSendPerformed;
-            sendAction.action.Enable();
-        }
+        sendAction.action.performed += OnSendPerformed;
+        sendAction.action.Enable();
+
+       
+        SwitchObjects.OnSwitched += ClearAllUIs;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        if (sendAction != null)
-        {
-            sendAction.action.performed -= OnSendPerformed;
-            sendAction.action.Disable();
-        }
+        sendAction.action.performed -= OnSendPerformed;
+        sendAction.action.Disable();
+
+        SwitchObjects.OnSwitched -= ClearAllUIs;
     }
 
-    private void OnSendPerformed(InputAction.CallbackContext ctx)
+    private void OnSendPerformed(InputAction.CallbackContext _)
     {
-        if (renderTexture == null)
-        {
-            Debug.LogWarning("[CaptureAndSend] RenderTexture가 비어 있음");
-            return;
-        }
-        StartCoroutine(CaptureAndUploadCoroutine());
+        if (_busy) return;
+
+        SpawnWaitingUI();
+        StartCoroutine(CaptureAndUpload());
     }
 
-    private IEnumerator CaptureAndUploadCoroutine()
+    private void SpawnWaitingUI()
     {
-        // 1) RT -> Texture2D 복사
+        ClearAllUIs(); // 혹시 남아있던 UI 정리
+        var go = Instantiate(guideUIPrefab, uiPoint.position, uiPoint.rotation);
+        waitingUI = go.GetComponent<GuideUIController>();
+        waitingUI.ShowWaiting(); // "결과를 기다리는 중..."
+    }
+
+    private IEnumerator CaptureAndUpload()
+    {
+        _busy = true;
+
+        // --- 캡처 ---
         var prev = RenderTexture.active;
         RenderTexture.active = renderTexture;
 
-        if (_readTex == null || _readTex.width != renderTexture.width || _readTex.height != renderTexture.height)
+        if (_readTex == null ||
+            _readTex.width != renderTexture.width || _readTex.height != renderTexture.height)
         {
             if (_readTex != null) Destroy(_readTex);
             _readTex = new Texture2D(renderTexture.width, renderTexture.height, TextureFormat.RGB24, false);
         }
 
-        _readTex.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0, false);
-        _readTex.Apply(false, false);
-
+        _readTex.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
+        _readTex.Apply();
         RenderTexture.active = prev;
 
-        // 2) PNG 인코딩
+        // --- 전송 ---
         byte[] png = _readTex.EncodeToPNG();
-
-        // 3) multipart/form-data 업로드
         WWWForm form = new WWWForm();
-        string filename = $"capture_{DateTime.UtcNow:yyyyMMdd_HHmmss}.png";
-        form.AddBinaryData("file", png, filename, "image/png");
+        form.AddBinaryData("file", png, "capture.png", "image/png");
 
-        // (선택) 메타데이터 예시: 카메라 포즈
-        form.AddField("pose_json", PoseToJson());
-
-        using (UnityWebRequest req = UnityWebRequest.Post(serverUrl, form))
+        using (var req = UnityWebRequest.Post(serverUrl, form))
         {
-            req.timeout = 10; // 초
+            req.timeout = 120;
             yield return req.SendWebRequest();
 
             if (req.result != UnityWebRequest.Result.Success)
             {
-                Debug.LogError($"[CaptureAndSend] Upload failed: {req.error}");
+                ShowResultUI(unknownContent);
             }
             else
             {
-                // 예: {"landmark":"황소상","score":0.97}
-                string json = req.downloadHandler.text;
-                Debug.Log($"[CaptureAndSend] Server response: {json}");
-
-                // TODO: json 파싱해서 UI 가이드 매핑 호출
-                // e.g., GuideUI.ShowFor(landmarkName);
+                ApplyLabel(req.downloadHandler.text);
             }
+        }
+
+        _busy = false;
+    }
+
+    private void ApplyLabel(string json)
+    {
+        try
+        {
+            var resp = JsonUtility.FromJson<DetectResponse>(json);
+            var label = resp?.label ?? "";
+            var content =
+                label == "bull" ? bullContent :
+                label == "disney" ? disneyContent :
+                unknownContent;
+
+            ShowResultUI(content);
+        }
+        catch
+        {
+            ShowResultUI(unknownContent);
         }
     }
 
-    // 선택: 카메라(혹은 손 앵커)의 포즈를 같이 보낼 때
-    private string PoseToJson()
+    private void ShowResultUI(GuideUIController.GuideContent content)
     {
-        // 예시: XR Origin의 RightHand Anchor 포즈를 기록하고 싶다면
-        // 여기서 해당 Transform을 Serialize
-        var t = transform; // 필요 시 다른 Transform 참조
-        var data = new
-        {
-            pos = new { x = t.position.x, y = t.position.y, z = t.position.z },
-            rot = new { x = t.rotation.eulerAngles.x, y = t.rotation.eulerAngles.y, z = t.rotation.eulerAngles.z }
-        };
-        return JsonUtility.ToJson(data);
+        // 분석중 UI 위치/회전 재사용 (없으면 uiPoint)
+        Vector3 pos = waitingUI ? waitingUI.transform.position : uiPoint.position;
+        Quaternion rot = waitingUI ? waitingUI.transform.rotation : uiPoint.rotation;
+
+        if (waitingUI) Destroy(waitingUI.gameObject);
+        if (resultUI) Destroy(resultUI.gameObject);
+
+        var go = Instantiate(guideUIPrefab, pos, rot);
+        resultUI = go.GetComponent<GuideUIController>();
+        resultUI.ShowResult(content);
+    }
+
+    private void ClearAllUIs()
+    {
+        if (waitingUI) Destroy(waitingUI.gameObject);
+        if (resultUI) Destroy(resultUI.gameObject);
+        waitingUI = null;
+        resultUI = null;
     }
 }
+
+
+
+
+
 

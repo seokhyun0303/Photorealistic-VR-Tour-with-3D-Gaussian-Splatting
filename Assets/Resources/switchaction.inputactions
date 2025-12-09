@@ -1,0 +1,45 @@
+{
+    "name": "switchaction",
+    "maps": [
+        {
+            "name": "switchaction",
+            "id": "45785ea1-58a7-4bb7-85f4-b47d94a587ce",
+            "actions": [
+                {
+                    "name": "switchaction",
+                    "type": "Button",
+                    "id": "9427c6d4-8c96-4a48-8388-57cf5b1ecdef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "44374302-b6be-4125-9021-d2123873b6ba",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "switchaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79513323-204c-447a-83dd-4a7ad3ab11c6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "switchaction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

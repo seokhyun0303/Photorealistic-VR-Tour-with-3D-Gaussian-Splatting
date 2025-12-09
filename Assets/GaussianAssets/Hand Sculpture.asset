@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b71fae31e6c7d438e8566dc713e666, type: 3}
+  m_Name: Hand Sculpture
+  m_EditorClassIdentifier: 
+  m_FormatVersion: 20240801
+  m_SplatCount: 121353
+  m_BoundsMin: {x: -0.1949487, y: -1.9705155, z: -0.25141907}
+  m_BoundsMax: {x: 0.48470652, y: -0.22147192, z: 0.4896941}
+  m_DataHash:
+    serializedVersion: 2
+    Hash: fc9c3398cd7b366d9c3c62b46bce071b
+  m_LayerInfo:
+  - x: 0
+    y: 121353
+  m_PosFormat: 0
+  m_ScaleFormat: 0
+  m_SHFormat: 0
+  m_ColorFormat: 0
+  m_clusteredSHData: {fileID: 0}
+  m_layerData:
+  - layer: 0
+    m_PosData: {fileID: 4900000, guid: 364667407e7593346be51d101c57b69d, type: 3}
+    m_ColorData: {fileID: 4900000, guid: e2bee51e2b8d2dc419c5bac5c089745c, type: 3}
+    m_OtherData: {fileID: 4900000, guid: 4e8bc1b6d117ac041a20aa1c18bc4e98, type: 3}
+    m_SHData: {fileID: 4900000, guid: a33d4ab68622a2b4aa7d40cfd9710964, type: 3}
+    m_ChunkData: {fileID: 0}
+  m_Cameras: []

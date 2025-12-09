@@ -6,14 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Test.unity
+    path: Assets/Scenes/Test.unity
     guid: ca13622d0f7f243a3a3020f3b8b0650f
   - enabled: 0
-    path: Assets/Demo.unity
+    path: Assets/Scenes/Demo.unity
     guid: d7db1c5e9e3bd1841b445942758be212
-  - enabled: 1
-    path: Assets/Test 1.unity
+  - enabled: 0
+    path: Assets/Scenes/Tour.unity
     guid: becae071ebe38b842bde0e4b6d9dd6bc
+  - enabled: 0
+    path: Assets/Scenes/Test 2.unity
+    guid: ca86d46b40936d740b5f2c7c1c9c885c
+  - enabled: 0
+    path: Assets/Scenes/Test 3.unity
+    guid: df952470fc5b10742b4adbe59b79c300
+  - enabled: 1
+    path: Assets/Scenes/Interior.unity
+    guid: f4abed7fcd1291542a0da9fb7aec5722
+  - enabled: 0
+    path: Assets/Scenes/Test 5.unity
+    guid: f00f3b1c7185bba43a9ac723c1f2f8dd
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b090be5d6637982448afcd52055a67a9, type: 2}
     Varjo.XR.Settings: {fileID: 11400000, guid: 0075bbd24aaad854b82bd8d4e209cee3, type: 2}
