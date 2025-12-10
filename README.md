@@ -75,25 +75,12 @@ Instead, clone the repository using **Git LFS**:
    cd Photorealistic-VR-Tour-with-3D-Gaussian-Splatting
    git lfs pull
 	```
+3. In Unity Hub, choose Add project from disk and select this cloned folder.
 
  ## 🔧 Installation & Setup
 For full data preparation, COLMAP reconstruction, 3D Gaussian Splatting training, and Unity import steps, see the detailed guide:
 
 ➡️ [Full Installation & Setup Guide](./INSTALLATION.md)
----
-
-#### (Optional) Backend Integration
-If you have a backend server running (for example, one that performs **object detection / KNN / image classification** using the 3DGS environment and communicates with Unity through the `CaptureAndSend` script on `127.0.0.1:8000`), you can use the following:
-
-**Step 5 — Configure SendPhoto Object**
-- In the scene hierarchy, select the **`SendPhoto`** object.  
-- In the **Guide Contents** section, fill in:
-- **Label** → the type of label expected from the backend  
-- **Title** → title for the UI  
-- **Description** → description text for the detected object  
-- **Video (mp4)** → optional video clip  
-- **TTS (wav)** → optional audio narration 
-![Guide Content setting](unity_5.png)
 ---
 
 ## Quick Start 
@@ -110,85 +97,101 @@ This backend supports both:
 
 ## Set Up the Backend Server (FastAPI)
 
-### 1. Download the Backend Files
+This project contains two completely separate backend servers, and each server corresponds to a different Unity scene:
 
-Backend files (including `main.py` and required assets) can be downloaded [here](https://drive.google.com/file/d/19fcQzbZMJccmCbrENV32U5k4odxzbFLi/view?usp=sharing):
+### 🛒 IKEA URL Finder Backend (Interior / Shopping Scene)
 
-Unzip the folder and open it in **PyCharm**, **VSCode**, or any Python IDE.
+When the user takes a virtual photo in the interior shopping scene, this backend analyzes the captured image and returns the closest matching IKEA product.
+→ Backend code is already included inside the GitHub repository (shopping_script.zip)
 
----
+🔧 How to Set Up the IKEA Backend
 
-### 2. Update Paths in `main.py`
+**Step 1** — Open PyCharm, create a new empty Python project.
 
-Inside `main.py`, several environment variables and file paths must be updated:
+**Step 2** — Copy the backend files
 
+After cloning the GitHub project with Git LFS copy the following 4 files into your new Python project:
+
+- caption_image.py
+- clip_similarity.py
+- ikea_client.py
+- main.py
+
+**Step 3** — Install required packages
+
+In PyCharm terminal:
 ```
-MODEL_LABEL = os.getenv("MODEL_LABEL", "황소상")
-OUT_DIR     = os.getenv("OUT_DIR", "/workspace/bull_model_out")
-SAM_CKPT    = os.getenv("SAM_CKPT", "/workspace/sam_vit_h_4b8939.pth")  
+pip install uvicorn
+pip install torch
+pip install fastapi
+pip install openai
+pip install ikea_api
+pip install open_clip_torch
+pip install requests
+pip install python-multipart
 ```
 
-Change these paths to match your local file locations:
-		- SAM model checkpoint path
-		- Prototype output directory
-		- Any dataset or working folders
-Use absolute paths to avoid runtime errors.
+**Step 4** — Set OpenAI API key
 
-Make sure you have **Python 3.9+** installed.
-	
-Then, in the same directory where **main.py** and **requirements.txt** are located, run:
+Windows PowerShell:
+```
+$env:OPENAI_API_KEY="YOUR_API_KEY"
+```
 
+**Step 5** — Run the backend
+```
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+If you see:
+```
+INFO:     Application startup complete.
+```
+
+the backend is running successfully.
+
+### 🐂 Bull Statue Detection Backend (Tour Scene)
+
+This backend processes captured photos in the tour scene, detecting and giving a discription of the objects captured.
+→ Backend files are NOT in GitHub (must be downloaded separately)
+
+🔧 How to Set Up the Bull Detection Backend
+
+**Step 1** — Open PyCharm, create a new Python project.
+
+**Step 2** — Download backend package
+
+Download this [zip](https://drive.google.com/file/d/19fcQzbZMJccmCbrENV32U5k4odxzbFLi/view?usp=sharing).
+
+Unzip photodetect.zip and copy everything into your project:
+
+- sam_vit_h_4b8939.pth
+- requirements.txt
+- app/
+- bull_model_out/
+- disney_model_out/
+- detect_out/
+
+**Step 3** — Install requirements
 ```
 pip install -r requirements.txt --upgrade
 ```
 
-### 🔑 Set OpenAI API Key (Windows PowerShell)
-
-```powershell
-$env:OPENAI_API_KEY="YOUR_OPENAI_KEY_HERE"
+**Step 4** — Run the backend
+```
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+Look for:
+```
+INFO:     Application startup complete.
 ```
 
-Replace "YOUR_OPENAI_KEY_HERE" with your actual API key.
+📌 Additional Notes  
+✔ These two backends are completely independent
 
-### 3. Run the FastAPI server
+- You do not run them together.
 
-Start the server using:
-
-```
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
-```
-
-If successful, you’ll see:
-
-```
-INFO:     Uvicorn running on http://127.0.0.1:8000
-```
-
-Keep this server running while you use the Unity app.
-
-
-
-**Step 6 — Build the Project in Unity**
-- Go to **File → Build Settings**.  
-- Choose your platform (**Windows / Mac / Linux**).  
-- Click **Build**.
-
-**Step 7 — Run in VR (PCVR Mode)**
-- Connect Meta Quest 3 via Link / AirLink
-- Launch the built Unity application
-
-**Step 8 — Controls**
-- **Left XR Controller**  
-- Joystick → Move forward, backward, left, right  
-- **Y button** → Switch to another virtual space (useful if you have multiple PLY assets)  
-- **Right XR Controller**  
-- Joystick left/right → Rotate view  
-- **A button** → Create camera  
-- **B button** → Capture photo and send it to backend (if configured)
-
-**Step 9 — UI Feedback**
-- When sending a photo, a **"Analyzing…"** UI appears.  
-- After a short wait, a UI with the description of the detected object/space is displayed.
+- Use the backend that matches the scene you are playing.
 
 ### Output:
 
