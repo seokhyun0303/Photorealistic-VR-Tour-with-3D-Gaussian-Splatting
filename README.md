@@ -21,9 +21,9 @@ Traditional VR tours are either:
 - [Technical Requirements](#-technical-requirements)
   - [Hardware](#hardware)
   - [Software](#software)
-- [Installation Notes](#installation-notes)
+- [Full Installation Guide](./INSTALLATION.md)
 - [Unity Setup](#unity-setup)
-- [Quick Start](#quick_start)
+- [Quick Start](#quick-start)
 - [Output](#output)
 - [Future Work](#-future-work)
 - [Contribution](#contribution)
@@ -61,6 +61,12 @@ When downloading this project as a ZIP:
 
 ❗ GitHub long path names can cause extract failures on Windows.  
 ✔ **Before unzipping**, rename the ZIP file to a **short name**.
+
+
+ ## 🔧 Installation & Setup
+For full data preparation, COLMAP reconstruction, 3D Gaussian Splatting training, and Unity import steps, see the detailed guide:
+
+➡️ [Full Installation & Setup Guide](./INSTALLATION.md)
 
 
 ### Unity Setup
@@ -118,9 +124,7 @@ This backend supports both:
 
 ### 1. Download the Backend Files
 
-Backend files (including `main.py` and required assets) can be downloaded here:
-
-👉 https://drive.google.com/file/d/1sdFmVURsjbqCbC6OFKLmIjUSF9ACXTfh/view?usp=sharing
+Backend files (including `main.py` and required assets) can be downloaded [here](https://drive.google.com/file/d/19fcQzbZMJccmCbrENV32U5k4odxzbFLi/view?usp=sharing):
 
 Unzip the folder and open it in **PyCharm**, **VSCode**, or any Python IDE.
 
