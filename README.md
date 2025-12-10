@@ -4,8 +4,6 @@
 This project aims to create photorealistic VR tours by combining 3D Reconstruction (COLMAP, OpenMVS) with 3D Gaussian Splatting (3DGS), and deploying the results in Unity for VR devices (Meta Quest 3, PCVR).  
 Unlike existing VR tours limited to pre-modeled spaces, our approach allows users to capture any environment with a smartphone camera and transform it into an immersive, high-quality VR tour.
 
-![Demo3](shopping_demo.gif)
-![Demo2](demo2.gif)
 ![Demo4](3dgs_openmvs_demo.gif)
 
 ### 🎯 Motivation  
@@ -203,6 +201,8 @@ Keep this server running while you use the Unity app.
 - After a short wait, a UI with the description of the detected object/space is displayed.
 
 ### Output:
+
+## 1️⃣ VR Tour Scene — Photorealistic 3D Reconstruction + Object/Scene Detection
 With this pipeline, a user can reconstruct a photorealistic 3D scene from just a short video recording.
 
 The result is a 3D Gaussian Splatting model (.ply), which can be imported into Unity and explored in VR with Meta Quest 3 (PCVR).
@@ -210,6 +210,32 @@ The result is a 3D Gaussian Splatting model (.ply), which can be imported into U
 Unlike traditional mesh/texture reconstructions, 3DGS produces smoother surfaces and more natural colors, delivering a highly realistic experience.
 
 When the backend server is connected, the VR system supports photo capture, object detection, and interactive guide generation — allowing users to receive contextual descriptions, videos, or audio narration directly inside the virtual tour.
+
+![Demo2](demo2.gif)
+
+
+## 2️⃣ Interior Shopping Scene — Virtual Camera + IKEA Product Similarity Search
+
+The second workflow demonstrates how this pipeline can be used for an AI-powered VR shopping experience.
+
+When the user takes a photo with the **virtual camera** (A to create camera, B to capture):
+
+- Unity sends the captured image to the backend.  
+- The backend extracts visual features. 
+- It compares the embedding to IKEA’s online catalog.  
+- The most visually similar furniture item is selected and returned.
+
+Unity then displays the recommended product inside VR.
+
+**Result:**  
+Users can explore a virtual interior, photograph objects, and instantly receive **real-world IKEA product matches**, enabling:
+
+- VR shopping  
+- Interior design assistance  
+- Smart room scanning applications  
+
+![Demo3](shopping_demo.gif)
+
 
 ## 🔮 Future Work
 Interactive VR Tours: Enhance user immersion by allowing interactions such as AI-generated guide signs, contextual descriptions, or 3D mini-maps within the reconstructed scenes.
