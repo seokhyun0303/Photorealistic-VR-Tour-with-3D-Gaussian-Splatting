@@ -101,10 +101,10 @@ This project contains two completely separate backend servers, and each server c
 
 ### 🛒 1. IKEA URL Finder Backend (Interior / Shopping Scene)
 
-When the user takes a virtual photo in the interior shopping scene, this backend analyzes the captured image and returns the closest matching IKEA product.
-→ Backend code is already included inside the GitHub repository (shopping_script.zip)
-→ The IKEA URL Finder backend requires a stable Internet connection to access the IKEA API and OpenAI API.
-Konkuk University Wi-Fi may block external API traffic, so if the backend does not respond, please switch to a different network (e.g., hotspot, home Wi-Fi).
+When the user takes a virtual photo in the interior shopping scene, this backend analyzes the captured image and returns the closest matching IKEA product.  
+→ Backend code is already included inside the GitHub repository (shopping_script.zip)  
+→ The IKEA URL Finder backend requires a stable Internet connection to access the IKEA API and OpenAI API.  
+**Konkuk University Wi-Fi may block external API traffic**, so if the backend does not respond, please switch to a different network (e.g., hotspot, home Wi-Fi).
 
 🔧 How to Set Up the IKEA Backend
 
