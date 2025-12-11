@@ -133,7 +133,7 @@ pip install python-multipart
 
 **Step 4** — Set OpenAI API key
 
-Windows PowerShell:
+PyCharm terminal:
 ```
 $env:OPENAI_API_KEY="YOUR_API_KEY"
 ```
