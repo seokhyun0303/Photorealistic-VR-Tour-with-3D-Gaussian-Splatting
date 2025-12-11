@@ -99,10 +99,12 @@ This backend supports both:
 
 This project contains two completely separate backend servers, and each server corresponds to a different Unity scene:
 
-### 🛒 IKEA URL Finder Backend (Interior / Shopping Scene)
+### 🛒 1. IKEA URL Finder Backend (Interior / Shopping Scene)
 
 When the user takes a virtual photo in the interior shopping scene, this backend analyzes the captured image and returns the closest matching IKEA product.
 → Backend code is already included inside the GitHub repository (shopping_script.zip)
+→ The IKEA URL Finder backend requires a stable Internet connection to access the IKEA API and OpenAI API.
+Konkuk University Wi-Fi may block external API traffic, so if the backend does not respond, please switch to a different network (e.g., hotspot, home Wi-Fi).
 
 🔧 How to Set Up the IKEA Backend
 
@@ -150,7 +152,7 @@ INFO:     Application startup complete.
 
 the backend is running successfully.
 
-### 🐂 Bull Statue Detection Backend (Tour Scene)
+### 🐂 2. Bull Statue Detection Backend (Tour Scene)
 
 This backend processes captured photos in the tour scene, detecting and giving a discription of the objects captured.
 → Backend files are NOT in GitHub (must be downloaded separately)
