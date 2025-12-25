@@ -243,6 +243,7 @@ Latency Reduction: Shorten UI response times by leveraging GPU acceleration and 
 This project makes use of the following open-source software:
 - [Unity-VR-Gaussian-Splatting](https://github.com/ninjamode/Unity-VR-Gaussian-Splatting)
 - [COLMAP](https://colmap.github.io/) — Schönberger, J. L., & Frahm, J.-M. (2016). Structure-from-Motion Revisited. CVPR.
+- [Ply File](https://www.diverseshot.com/blog/3d-gaussian-splatting-flies-examples)
 ## License info
 - Unity-VR-Gaussian-Splatting → MIT License © 2023 ninjamode
 - COLMAP → BSD 3-Clause License © 2016 Johannes L. Schönberger
